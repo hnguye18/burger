@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <style type = "text/css">
+        .sub{color: #52888B};
+    </style>
+    <style type = "text/css">
+        .tot{color: #9C2D2F};
+    </style>
+    <style type = "text/css">
+        .item{color: #42318A};
+    </style>
+    <style type = "text/css">
+        .hd{color: #52888B; font-size: 25pt};
+    </style>
+    <style type = "text/css">
+        .dc{color: #4EA058};
+    </style>
+    <style type = "text/css">
+        .ndc{color: #392C2C};
+    </style>
+    <style type = "text/css">
+        .tax{color: #315132};
+    </style>
+    
+    <title>Joe's Hotdogs</title>
+</head>
+    
+<body>
+    <script language = "javascript">
+        prices = [3.75, 2, 1.5];
+        qty = [0, 0, 0];
+        qty[0] = prompt("How many hotdogs would you like?");
+        qty[1] = prompt("How many fries would you like?");
+        qty[2] = prompt("How many sodas would you like?");
+        subtotal = 0;
+        for (let i = 0; i < 3; i++) {
+            subtotal += (prices[i] * qty[i]);
+        } 
+        total = subtotal;
+         
+        if (total >= 20) {
+            total *= 0.9;
+        }
+        document.write("<span class = 'hd'>Your order:<br/></span>");
+        document.write("<span class = 'item'>Hotdogs: " + qty[0] + "x<br/></span>");
+        document.write("<span class = 'item'>Fries: " + qty[1] + "x<br/></span>");
+        document.write("<span class = 'item'>Sodas: " + qty[2] + "x<br/></span>");
+        document.write("<span class = 'sub'>Subtotal: $" + subtotal + "<br/></span>");
+        if (Boolean(subtotal >= 20)) {
+            document.write("<span class = 'dc'>Discount: $" + (subtotal * 0.1).toFixed(2) + "<br/></span>");
+        } else {
+            document.write("<span class = 'ndc'>No discount applied<br/></span>");
+        }
+        document.write("<span class = 'tax'>Tax: $" + ((total * 0.0625).toFixed(2)) + "<br/></span>");
+        total *= 1.0625;
+        document.write("<span class = 'tot'>Total: $" + (total.toFixed(2)) + "<br/></span>");
+    </script>
+</body>
+</html>
